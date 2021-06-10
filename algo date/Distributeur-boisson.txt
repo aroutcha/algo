@@ -4,6 +4,7 @@ Enregistrement Boisson
     prix: flottant
 FinEnregistrement
 
+
 Algo Distributeur
 Variables 
     boissons: tableau[4] de Boisson
