@@ -1,0 +1,12 @@
+.carre {
+    width: 100px;
+    height: 100px;
+    background-color: #cd2127;
+    border-radius: 50px;
+}
+
+.grille {
+    width: 800px;
+    height: 500px;
+    border: 5px solid #ccc;
+}

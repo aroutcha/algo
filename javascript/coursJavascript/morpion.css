@@ -1,0 +1,9 @@
+.morpion .col {
+    height: 100px;
+    text-align: center;
+    font-size: 60px;
+    cursor: pointer;
+}
+.section-button .btn-start {
+    display: none;
+}
