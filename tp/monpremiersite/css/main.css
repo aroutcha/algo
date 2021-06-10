@@ -1,0 +1,281 @@
+/* Chargement d'une police */
+@font-face {
+    font-family: 'alataregular';
+    src: url('../fonts/alata-regular-webfont.woff2') format('woff2'),
+         url('../fonts/alata-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* appliquer les propriétés CSS sur tous les éléments de la page */
+* {
+    /* faire en sorte que le padding et la bordure soient calculés à l'intérieur du conteneur. on change le mode de calcul à l'aide de box-sizing */
+    box-sizing: border-box;
+}
+
+/* Redéfinir la valeur de base du rem pour ne plus avoir de conversion à faire */
+html {
+    /*
+    16px -> 100%
+    10px -> 62.5%
+    */
+    font-size: 62.5%; /* ainsi 1rem = 10px au lieux de 16px*/
+}
+
+body {
+    /* surcharger les marges appliquées par défaut */
+    margin: 0;
+
+    background-color: #ebebeb;
+
+    font-family: 'Roboto', sans-serif;
+
+    /* dès lors que l'on ajoute le header en positionnement fixé le contenu du body est "mangé" par la superposition du header, on ajoute une marge intérieure pour corriger ce soucis */
+    padding-top: 90px;
+
+    /* taille par défaut pour éviter d'avoir tous les éléments avec une taille définie à 10px */
+    font-size: 1.6rem;
+}
+
+header {
+    background: linear-gradient(white, #ebebeb);
+    padding: 10px 0;
+
+    /* Comment l'élément doit se positionner ? */
+    position: fixed;
+    /* Où doit se positionner l'élément ? */
+    top: 0;
+    left: 0;
+    /* Par défaut l'élément fixé ne prend que l'espace dont il a besoin */
+    right: 0;
+
+    /* on indique au header d'être en premier plan sur l'axe z (tous les éléments ont un z-index à 0 par défaut)
+    gérer les superpositions
+    */
+    z-index: 1;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+header img {
+    width: 200px;
+}
+
+nav {
+    /* flotaison à droite */
+    float: right;
+}
+
+nav ul li {
+    /* changer le comportement d'affichage d'un élément 
+    inline-block : l'élément se comporte en inline avec la possibilité de dimensionner l'élément */
+    display: inline-block;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #f83030;
+    padding: 10px 0;
+    margin: 0 10px;
+}
+
+nav ul li a:hover {
+    border-bottom: 2px solid #f83030;
+}
+
+main {
+    /* modifier la largeur du conteneur */
+    max-width: 1100px;
+    /* centrer un bloc */
+    margin: 0 auto;
+
+    background-color: white;
+    padding: 20px;
+}
+
+/* Les sélecteurs d'éléments HTML */
+p {
+    color: blue;
+}
+
+/* 
+Les sélecteurs de classes
+le . permet de cibler une classe
+(vous pouvez préciser l'élément portant la classe, exemple : p.welcome)
+*/
+.welcome {
+    color: #f83030;
+
+    /* on applique la police chargée dans le @font-face */
+    font-family: 'alataregular';
+}
+
+/*
+Les sélecteurs d'id
+le # permet de cibler un id
+*/
+#presentation {
+    /* background-color: aliceblue; */
+    /* fond imagé 
+    ../ indique que l'on remonte au dossier parent
+    */
+    /* background-image: url("../img/palmiers.jpg"); */
+    /* Superposer un fond dégradé et une image */
+    background: linear-gradient(transparent, #999999), url("../img/palmiers.jpg");
+    /* pas de répétition de l'image */
+    /* background-repeat: no-repeat; */
+
+    /* changer la taille du background
+    la valeur cover est très pratique puisqu'elle optimise le remplissage en largeur et en hauteur*/
+    background-size: cover;
+
+    /* positionnement du background */
+    background-position-y: 100%;
+
+    /* marges intérieures */
+    padding: 100px 40px;
+
+    /* centrer le texte */
+    text-align: right;
+
+    /* changer la taille de police */
+    font-size: 32px;
+    /* texte en gras */
+    font-weight: bold;
+}
+
+.btn {
+    color: #ecf0f1;
+    /* enlever le soulignement par défaut d'un lien */
+    text-decoration: none;
+    font-size: 20px;
+
+    /* ajouter une bordure
+    border: taille style couleur
+    */
+    border: 2px solid #ecf0f1;
+    /* bords arrondis */
+    border-radius: 5px;
+
+    padding: 10px;
+}
+
+/* appliquer des styles uniquement au survol d'un élément */
+.btn:hover {
+    background-color: #ecf0f1;
+    color: #333333;
+}
+
+.item {
+    margin: 0;
+    width: 50%;
+    /* flotaison à gauche */
+    float: left;
+
+    padding: 0 5px;
+
+    /* en bonus alignement des images */
+    max-height: 650px;
+    /* cacher les morceaux des images qui débordent sur l'axe x ou y */
+    overflow: hidden;
+}
+
+figure img, figure video, figure iframe {
+    /* images responsive */
+    width: 100%;
+}
+
+/* Casser / Arrêter / Stopper la flotaison */
+.clearfix {
+    clear: both;
+}
+
+/*
+Encart services
+*/
+#services {
+    /* on applique un alignement au centre en cascade sur tous les éléments de cette div */
+    text-align: center;
+}
+
+#services h2 {
+    color: #f83030;
+    font-size: 40px;
+    /* mettre le texte en majuscule */
+    text-transform: uppercase;
+    /* espacement des lettres */
+    letter-spacing: 4px;
+}
+
+/*
+.row est notre flex container
+*/
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* .col représente tous nos flex items */
+.col {
+    /* on dimensionne chaque flex item */
+    flex-basis: 30%;
+}
+
+.col p {
+    color: #333333;
+    /* justification du texte (propre) */
+    text-align: justify;
+}
+
+/* La ligne de séparation est en fait une bordure que l'on peut surcharger */
+.col hr {
+    border: 2px solid #f83030;
+    width: 50%;
+}
+
+.col i {
+    /* Fontello est un générateur de police d'icones nous pouvons donc utiliser toutes les propriétés vues pour les polices (taille, couleur, ...) */
+    font-size: 40px;
+    color: #f83030;
+}
+
+/* Superposer la légende au conteneur de l'image */
+.item {
+    /* Positionnement du "parent" pour que la légende se positionne par rapport à lui */
+    position: relative;
+}
+
+.item figcaption {
+    /* Comment doit se positionner l'élément */
+    position: absolute;
+    /* Où doit se positionner cet élément */
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background-color: rgba(248, 48, 48, 0.8);
+    color: white;
+    padding: 10px;
+}
+
+@media screen and(max-width:575px){
+    h1{ 
+        color:blue;
+}
+
+
+.row{
+
+    flex-direction: column;
+}
+
+}
+
+@media screen and(min-width:576px) and(max-width:767px){
+    h1{ color: green;
+    }
+}

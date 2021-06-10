@@ -1,0 +1,116 @@
+Algo NomComplet
+Variables prenom, nom : chaine
+Début
+
+    Ecrire("Saisir votre prénom")
+    Lire(prenom)
+    Ecrire("Saisir votre nom")
+    Lire(nom)
+
+    Ecrire("Bonjour", prenom, nom)
+
+Fin
+
+---------------------------------------------
+
+Algo CalculTTC
+Variables prixHT, prixTTC, txTVA : flottant,
+          nbArticles : entier
+
+Début
+
+    Ecrire("Saisir le nombre d'articles")
+    Lire(nbArticles)
+
+    Ecrire("Saisir le prix HT unitaire d'un article")
+    Lire(prixHT)
+
+    Ecrire("Saisir le taux de TVA pour cet article)
+    Lire(txTVA)
+
+    prixTTC <- prixHT * (1 + txTVA/100) * nbArticles
+    Ecrire("Le prix TTC total est de :", prixTTC, "€")
+
+Fin
+
+-----------------------------------------------------
+
+Algo NbSuperieurA12
+Constante nbATester<-12 : entier
+Variables nb: entier
+
+Début
+
+    Ecrire("Saisir un nombre supérieur à", nbATester)
+    Lire(nb)
+
+    Si (nb > nbATester) alors
+        Ecrire(nb, "est supérieur à", nbATester)
+    Sinon
+        Si (nb = nbATester) alors
+            Ecrire(nb, "est égal à", nbATester)
+        Sinon
+            Ecrire(nb, "est inférieur", nbATester)
+        FinSi
+    FinSi
+
+Fin
+
+----------------------------------------------------
+
+Algo CleUSB
+Variables nbCle, prix: entier
+
+Début
+
+    Ecrire("Combien de clé USB souhaitez-vous ?")
+    Lire(nbCle)
+
+    Si (nbCle < 10) alors
+        prix <- nbCle * 5
+    Sinon
+        Si (nbCle <= 20) alors
+            prix <- nbCle * 4
+        Sinon
+            prix <- nbCle * 3
+        FinSi
+    FinSi
+
+    Ecrire("Le prix à payer est de :", prix)
+
+Fin
+
+-------------------------------------------------------------
+
+Algo OrdreAlphabetique
+Variables nom1, nom2, nom3: chaine
+
+Début
+
+    Ecrire("Saisir trois noms successivement (faire entrée entre chaque nom)")
+    Lire(nom1)
+    Lire(nom2)
+    Lire(nom3)
+
+    Si ((nom1 < nom2) ET (nom2 < nom3))
+        Ecrire("Les noms sont dans l'ordre alphabétique")
+    Sinon
+        Ecrire("Les noms ne sont pas dans l'ordre alphabétique")    
+    FinSi
+Fin
+
+
+****************************************************************
+variables
+a,b,c: entier
+Début
+A<- 7
+B<- 17
+17<- B
+22<-A+5
+39<-A+B
+5<-B-A
+A<-  17
+B<-  22
+C<-  5
+10*2

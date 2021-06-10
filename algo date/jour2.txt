@@ -1,0 +1,233 @@
+Algo TantQue1A3
+Variables nb:entier
+
+Début
+
+    Ecrire("Saisir un nombre entre 1 et 3")
+    Lire(nb) //4
+
+    // tant que la condition est vraie on reste dans la boucle dès que c'est faux  on sort de la boucle
+    TantQue ((nb<1) OU (nb>3))
+
+        // 4<1 OU 4>3 -> FAUX OU VRAI -> VRAI --> on rentre dans la boucle
+        // 4<1 ET 4>3 -> FAUX ET VRAI -> FAUX --> on ne rentre pas dans la boucle 
+
+        Ecrire("Saisie incorrecte, recommencez !")
+        Lire(nb)
+
+    FinTantQue
+
+    Ecrire("Bravo tu as réussi !")
+
+Fin
+
+----------------------------------------------------------------
+
+Algo RepeterJusqua1A3
+Variables
+
+Début
+
+    // tant que la condition est fausse on reste dans la boucle, dès que c'est vrai on sort de la boucle
+    Répéter
+
+        Ecrire("Saisir un nombre entre 1 et 3")
+        Lire(nb)
+
+    Jusqu'à ((nb>=1) ET (nb<=3))
+
+    // 4 >= 1 ET 4 <= 3 -> VRAI ET FAUX --> FAUX
+    // 2 >= 1 ET 2 <= 3 -> VRAI ET VRAI --> VRAI
+
+    Ecrire("Bravo tu as réussi !")
+
+Fin
+
+----------------------------------------------------------
+
+Algo TableMultiplication
+Variables i, nb: entier
+
+Début
+
+    Ecrire("Choisis ta table !")
+    Lire(nb)
+
+    Pour i allant de 1 à 10 faire
+
+        Ecrire(nb, "x", i, "=", nb*i)
+        // 9 x 1 = 9
+        // 9 x 2 = 18
+        // ....
+        // 9 x 10 = 90
+
+    FinPour
+
+Fin
+
+-----------------------------------------------------
+
+Algo PlusGrandNombre
+Variables i, nb, nbMax: entier
+
+Début
+
+    nbMax <- 0
+
+    Pour i allant de 1 à 20 faire
+
+        Ecrire("Saisir un nombre entier")
+        Lire(nb)
+
+        // le test i = 1 permet de gérer le cas où l'utilisateur ne saisie que des nombres négatifs
+        Si (nb > nbMax) OU (i = 1) alors
+            nbMax <- nb
+        FinSi
+
+    FinPour
+
+    Ecrire("Le plus grand nombre est :", nbMax)
+
+Fin
+
+-------------------------------------------------------------
+
+Algo SommeDesEntiers
+Variables i, nb, somme: entier
+
+Début
+
+    Ecrire("Saisir un nombre entier")
+    Lire(nb)
+
+    // initialisation de la variable somme (pour la premiere itération)
+    somme <- 0
+
+    Pour i allant de 1 à nb faire
+
+        somme <- somme + i
+
+    FinPour
+
+    Ecrire("La somme des entiers vaut :", somme)
+
+Fin
+
+-----------------------------------------------------------------
+
+Fonction max(x, y : entier) : entier
+Début
+
+    Si (x > y) alors
+        Retourner(x)
+    Sinon
+        Retourner(y)
+    FinSi
+
+Fin
+
+Algo PlusGrandNombreAvecFonction
+Variables nb1, nb2, nbMax : entier
+
+Début
+
+    Ecrire("Saisir un premier nombre")
+    Lire(nb1)
+    Ecrire("Saisir un deuxième nombre")
+    Lire(nb2)
+
+    // Appel à la fonction max
+    nbMax <- max(nb1, nb2)
+
+    Ecrire("Le plus grand nombre est:", nbMax)
+
+    // OU
+    // Ecrire("Le plus grand nombre est:", max(nb1, nb2))
+
+Fin
+
+------------------------------------------------------------------
+
+Algo TableauNotes
+Variables notes: tableau[30] de flottants
+          i: entier
+
+Début
+
+    // Remplissage du tableau de notes
+    Pour i allant de 0 à 29 faire
+
+        Ecrire("Saisir la note n°", i+1)
+        Lire(notes[i])
+
+    FinPour
+
+    // Affichage du tableau de notes
+    Pour i allant de 0 à 29 faire
+
+        Ecrire("La note n°", i+1, "vaut", notes[i])
+
+    FinPour
+
+Fin
+
+--------------------------------------------------------------
+
+Algo EtudiantsEtMatieres
+Variables notes: tableau[15, 3] de flottants
+          i, j : entier
+
+Debut
+
+    // Parcourir les lignes du tableau 2D
+    Pour i allant de 0 à 14 faire
+
+        // Parcourir les colonnes de chaque ligne du tableau 2D
+        Pour j allant de 0 à 2 faire
+
+            Ecrire("Saisir la note pour l'étudiant n°", i+1, " et la matière n°", j+1)
+            Lire(notes[i, j])
+
+        FinPour
+
+    FinPour 
+
+Fin
+
+-----------------------------------------------------------
+
+Algo AdditionTableau
+Variables
+    t1, t2, t3: tableau[] d'entiers
+    taille, i: entier
+
+Début
+
+    Ecrire("Nombre d'éléments dans les tableaux")
+    Lire(taille)
+
+    Redimensionner(t1[taille])
+    Redimensionner(t2[taille])
+    Redimensionner(t3[taille])
+
+    // Remplissage des tableaux 1 et 2
+    Pour i allant de 0 à taille-1 faire
+
+        Ecrire("Saisir un nombre entier pour le tableau 1")
+        Lire(t1[i])
+
+        Ecrire("Saisir un nombre entier pour le tableau 2")
+        Lire(t2[i])
+
+        t3[i] <- t1[i] + t2[i]
+        
+    FinPour
+
+    // Affichage du tableau 3
+    Pour i allant de 0 à taille-1 faire
+
+        Ecrire("La valeur de la case", i+1, "du tableau 3 vaut", t3[i])
+
+    FinPour
+
+Fin

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Découverte de Bootstrap 4</title>
+
+    <!-- Chargement de la feuille de style de Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <!-- Chargement de notre feuille de style pour surcharger Bootstrap (on ne modifie pas Bootstrap directement) -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+    <!-- Composant Navbar 
+    La classe navbar-expand-* permet de déterminer à partir de quelle famille d'écrans (breakpoint) est affiché le menu en dehors du hamburger
+    
+    Possibilité de fixer à la fenêtre du navigateur avec la classe fixed-top
+    -->
+    <nav class="navbar navbar-dark navbar-expand-md">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">Start Bootstrap</a>
+
+            <!-- Bouton hamburger -->
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Eléments du menu -->
+            <div class="navbar-collapse collapse" id="menu">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="" class="nav-link">Présentation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Composant jumbotron -->
+    <div class="jumbotron">
+        <h1>Découverte de Bootstrap 4</h1>
+        <p>Partons à la découverte du framework CSS Bootstrap</p>
+        <a href="http://getbootstrap.com" class="btn btn-outline-light">En savoir plus</a>
+    </div>
+
+    <p class="text-center text-uppercase">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo quia illum ea
+        amet eveniet nihil molestiae labore fugit odit unde quidem laborum, voluptates dolores minima ut nesciunt maxime
+        iure inventore.</p>
+
+    <!-- Liste en ligne -->
+    <ul class="list-inline">
+        <li class="list-inline-item">Accueil</li>
+        <li class="list-inline-item">Présentation</li>
+        <li class="list-inline-item">Services</li>
+    </ul>
+
+    <!-- Les liens (sous forme de bouton) 
+    btn-sm : petit bouton
+    btn-lg : gros bouton
+    si aucune classe pour la taille spécifiée : taille par défaut (moyen bouton) 
+    -->
+    <a href="http://google.fr" class="btn btn-primary btn-sm">Exemple lien sous forme de bouton</a>
+    <a href="http://google.fr" class="btn btn-success">Exemple lien sous forme de bouton de succès</a>
+    <a href="http://google.fr" class="btn btn-danger btn-lg">Exemple lien sous forme de bouton d'erreur</a>
+
+    <!-- version outline 
+    btn-outline-* : * représente le style que vous voulez donner (success, warning, ...)
+    -->
+    <a href="http://google.fr" class="btn btn-outline-primary">Exemple lien sous forme de bouton</a>
+
+    <!-- Système de grille 
+    il existe aussi la classe container-fluid qui n'a pas de marge à gauche et à droite - son contenu n'est pas contraint en largeur (1140px)
+    -->
+    <div class="container">
+        <!-- On créé une ligne afin de disposer de 12 colonnes que l'on va pouvoir répartir comme on le souhaite -->
+        <div class="row">
+            <!-- 3 colonnes de taille identique car nous ne donnons pas d'indication de taille -->
+            <!-- <div class="col">Element 1/3</div>
+            <div class="col">Element 2/3</div>
+            <div class="col">Element 3/3</div> -->
+
+            <!-- 1 élément de 8 colonnes et 1 élément de 4 colonnes pour toutes les tailles d'écrans -->
+            <!-- <div class="col-8">1 élément de 8 colonnes</div>
+            <div class="col-4">1 élément de 4 colonnes</div> -->
+
+            <!-- 1 élément de 8 colonnes et 1 élément de 4 colonnes pour toutes les tailles d'écrans à partir de la phablet -->
+            <!-- <div class="col-sm-8">1 élément de 8 colonnes</div>
+            <div class="col-sm-4">1 élément de 4 colonnes</div> -->
+
+            <!-- gérer 2 tailles d'écrans différentes -->
+            <div class="col-sm col-lg-8">élément 1</div>
+            <div class="col-sm col-lg-4">élément 2</div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm">
+                Derniers films
+                <div class="row">
+                    <div class="col-md">Film 1</div>
+                    <div class="col-md">Film 2</div>
+                    <div class="col-md">Film 3</div>
+                </div>
+            </div>
+            <div class="col-sm">
+                Top films
+                <div class="row">
+                    <div class="col-md">Film 1</div>
+                    <div class="col-md">Film 2</div>
+                    <div class="col-md">Film 3</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chargement des fichiers JavaScript -->
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+</body>
+
+</html>

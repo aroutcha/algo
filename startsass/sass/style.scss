@@ -1,0 +1,95 @@
+// Import d'un fichier partiel
+@import "variables";
+@import "mixins";
+@import "reset";
+
+/* Commentaire qui va apparaitre dans le fichier CSS */
+// Commentaire propre au fichier scss
+
+h1 {
+    color: $color-primary;
+    background-color: $color-secondary;
+
+    // Appel à la mixin no-margin
+    @include no-margin();
+
+    @media screen and (min-width: $sm-breakpoint) {
+        font-size: 2.5rem;
+    }
+}
+
+// Syntaxe imbriquée
+nav {
+    background-color: $color-primary;
+
+    ul {
+        padding: 1rem;
+
+        li {
+            display: inline-block;
+            padding: 0 0.5rem;
+
+            a {
+                color: $color-secondary;
+                text-decoration: none;
+
+                // Effet au survol du lien
+                // Pour indiquer d'utiliser le sélecteur parent il suffit d'utiliser le caractère &
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+.btn {
+    @include button(white, $color-secondary);
+}
+.btn-success {
+    @include button(white, $color-success);
+}
+.btn-radius-success {
+    @include button(white, $color-success, 0.5rem);
+}
+
+@for $i from 1 through 6 {   
+    .margin-#{$i} {  
+        margin: 1rem * $i;  
+    } 
+}
+
+$colors: red, blue, green; 
+
+@each $color in $colors  {   
+    .bg-#{$color} {     
+        background-color: $color;   
+    } 
+}
+
+$text-transform:( 
+    text-uppercase: uppercase, 
+    text-capitalize: capitalize, 
+    text-lowercase: lowercase 
+); 
+
+@each $classname, $style in $text-transform {    
+    .#{$classname} {       
+        text-transform: $style;   
+    } 
+}
+
+// Mise en application avec les boutons
+$buttons: (
+    primary: $color-primary,
+    warning: $color-warning
+);
+
+@each $key, $value in $buttons {
+    .btn-#{$key} {
+        @include button(white, $value);
+    }
+    .btn-radius-#{$key} {
+        @include button(white, $value, 0.5rem);
+    }
+}

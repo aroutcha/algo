@@ -1,0 +1,41 @@
+
+Enregistrement véhicule
+    NP: chaine
+    getdate: date
+
+FinEnregistrement
+
+
+
+Algo Parking
+variables
+        numero plaque NP: chaine
+        prix: flottant
+        tableau[] de voiture
+        i :entier
+
+
+Ecrire ("Saisir votre plaque d'immatriculation")
+
+Lire(NP)
+
+ECRIRE("enregistrer l'heure d'arrivée  ")
+Lire (getdate)
+
+
+ECRIRE(" saisir votre plaque d'immatriculation" )
+Lire( np )
+ECRIRE( "inserer le ticket")
+Lire(diffdate)
+Si   (getdiffdate(date1-date2) =< 15) alors
+
+ECRIRE (" le prix à payer est: 0.8") 
+sinon
+si (getdiffdate(date1-date2)  =<30) alors
+ECRIRE (" le prix à payer est: 1.3")
+sinon 
+si (getdiffdate(date1-date2)  =<45) alors
+ECRIRE (" le prix à payer est: 1.7")
+sINON 
+ECRIRE (" le prix à payer est: 6")
+

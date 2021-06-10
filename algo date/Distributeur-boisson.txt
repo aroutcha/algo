@@ -1,0 +1,76 @@
+Enregistrement Boisson
+    code: chaine,
+    nom: chaine,
+    prix: flottant
+FinEnregistrement
+
+Algo Distributeur
+Variables 
+    boissons: tableau[4] de Boisson
+    choix, i, index: entier
+    monnaie, appoint: flottant
+
+Début
+
+    // Initialisation du tableau de boissons
+    boissons[0] <- {
+        code: "B1",
+        nom: "Coca Cola",
+        prix: 0.8
+    }
+    boissons[1] <- {
+        code: "B2",
+        nom: "Fanta",
+        prix: 0.7
+    }
+    boissons[2] <- {
+        code: "B7",
+        nom: "Ice Tea",
+        prix: 0.7
+    }
+    boissons[3] <- {
+        code: "C1",
+        nom: "Perrier",
+        prix: 1
+    }
+
+    // 1/ L'utilisateur doit saisir la boisson souhaitée
+    Ecrire("Choississez votre boisson")
+    Lire(choix)
+
+    // Trouver dans le tableau la boisson sélectionnée
+    Pour i allant de 0 à compteur(boissons)-1 faire
+
+        Si (choix = boissons[i].code) alors 
+            index <- i
+        FinSi
+
+    FinPour
+
+    // 2/ Afficher le prix de la boisson sélectionnée
+    Ecrire(boissons[index].prix, "€")
+
+    // 3/ Tester si la somme payée est correcte
+    Ecrire("Insérer la monnaie")
+    Lire(monnaie)
+
+    TantQue (monnaie < boissons[index].prix) faire
+
+        Ecrire("Manque", boissons[index].prix - monnaie, "€")
+        Lire(appoint)
+
+        monnaie <- monnaie + appoint
+
+    FinTantQue
+
+    // Le distributeur rend la monnaie
+    Si (monnaie > boissons[index].prix) alors
+
+        Ecrire("Voici votre monnaie :", monnaie - boissons[index].prix, "€")
+
+    FinSi
+
+    // 4/ Afficher un message de Fin
+    Ecrire("Votre boisson", boissons[index].nom, "est prête")
+
+Fin

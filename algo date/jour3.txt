@@ -1,0 +1,336 @@
+
+Enregistrement Personne
+nom: chaine,
+pénom:chaine,
+age:entier
+finEnregistrement
+p1.nom    <- "Dupont"
+pl1.prénom<- "jean"
+pl1.age   <- 34
+ou 
+p1 <- {}
+nom: "dupont"
+prenom: "jean"
+age:34
+
+
+-----------------------------------------------------------------------------------
+Enregistrement Voiture
+    marque: chaine,
+    modele: chaine,
+    kilometrage: entier,
+    annee: entier
+
+    Methode klaxonner()
+        Ecrire("Tut tut")
+    FinMethode
+
+    Methode affichage()
+        Retourner(instance.marque & "-" & instance.modele & "-" & instance.kilometrage & "km" & "-" & instance.annee)
+    FinMethode
+FinEnregistrement
+
+Algo Concessionnaire
+Variables 
+    v1: Voiture
+    voitures: tableau[10] de Voiture
+    i: entier
+
+Début
+
+    v1.marque <- "WolfWagen"
+    v1.modele <- "Golf"
+    v1.kilometrage <- 100000
+    v1.annee <- 2015
+
+    Ecrire(v1.marque, "-", v1.modele, "-", v1.kilometrage, "km", "-", v1.annee) // redondant possible avec une méthode
+    
+    Ecrire(v1.affichage()) // va afficher WolfWagen - Golf - 100000km - 2015
+
+    v1.klaxonner() // affiche Tut tut
+
+    // Remplir le tableau de voitures
+    // compteur(nomTableau) --> renvoie la taille du tableau
+    Pour i allant de 0 à compteur(voitures)-1 faire
+
+        Ecrire("Saisir la marque de la voiture n°", i+1)
+        Lire(voitures[i].marque)
+
+        Ecrire("Saisir le modèle de la voiture n°", i+1)
+        Lire(voitures[i].modele)
+        
+        Ecrire("Saisir le kilometrage de la voiture n°", i+1)
+        Lire(voitures[i].kilometrage)
+
+        Ecrire("Saisir l'année de la voiture n°", i+1)
+        Lire(voitures[i].annee)
+
+        // Affichage des informations de la voiture
+        // Ecrire(voitures[i].affichage())
+        // ou en personnalisant le message
+        Ecrire("Récapitulatif de la voiture n°", i+1, ":", voitures[i].affichage())
+
+    FinPour
+
+Fin
+
+------------------------------------------------------------
+
+a <- 4*2+5             a<- 13
+b <- 5+3*2-6           b<- 5
+c <- (a>b) et (b>2)    c<- vrai
+d<-  (a<b) ou (b>2)    d <<-vrai
+
+algo
+variable i, j :
+pour i allant de 1 à 5                       *
+pour j allant de 1 à i faire                 **
+Ecrire ("*")                                 ***
+Ecrire("/n)                                  ****
+FinPour                                      *****
+Fin
+
+ou
+
+début
+Etoiles <- "" // affectation d'une chaine vide
+pour i allant de 1 à 5 faireetoiles <- etoiles & "*"
+ECRIRE (etoiles, "/n")
+
+
+
+
+
+
+
+-------------------------------------------------------------
+
+Algo TriangleEtoiles
+Variables i, j: entier
+
+Début
+
+    Pour i allant de 1 à 5 faire
+
+        Pour j allant de 1 à i faire
+            Ecrire("*")
+        FinPour
+
+        Ecrire("\n") // Retour à la ligne
+
+    FinPour
+
+Fin
+
+// Solution alternative
+Algo TriangleEtoiles
+Variables i: entier
+          etoiles: chaine
+
+Début
+
+    etoiles <- "" // affectation d'une chaine vide
+
+    Pour i allant de 1 à 5 faire
+
+        etoiles <- etoiles & "*"
+
+        Ecrire(etoiles, "\n")
+
+    FinPour
+
+Fin
+
+--------------------------------------------------------
+
+Algo Devinette
+Variables nbADeviner, reponse, score: entier
+
+Début
+
+    score <- 0
+
+    Ecrire("Joueur 1, donne un nombre à faire deviner au joueur 2")
+    Lire(nbADeviner)
+
+    Répéter
+
+        Ecrire("Joueur 2, tente ta chance et essaye de deviner le nombre")
+        Lire(reponse)
+
+        Si (reponse > nbADeviner) alors
+            Ecrire("Le nombre saisi est trop grand")
+        FinSi
+
+        Si (reponse < nbADeviner) alors
+            Ecrire("Le nombre saisi est trop petit")
+        FinSi
+
+        // incrémenter la valeur de score
+        score <- score + 1
+
+    Jusqu'à (nbADeviner = reponse)
+
+    // TantQue (nbADeviner <> reponse)
+
+    Si (score = 1) alors
+        Ecrire("Bravo champion tu as trouvé le nombre", nbADeviner, "en seulement", score, "tentative")
+    Sinon
+        Si (score > 20) alors 
+            Ecrire("C'est pas trop tôt, tu as deviné", nbADeviner, "en", score, "tentatives, loser...")
+        Sinon
+            Ecrire("Bravo tu as trouvé le nombre", nbADeviner, "en", score, "tentatives")
+        FinSi
+    FinSi
+
+Fin
+
+--------------------------------------------------------------
+
+Algo SupprimerElement
+Variables tab: tableau[] d'entiers
+          i, taille, valeur: entier
+
+Début
+
+    // Taille du tableau
+    Ecrire("Combien de valeur souhaitez vous saisir ?")
+    Lire(taille)
+
+    Redimensionner(tab[taille])
+
+    // Remplissage du tableau
+    Pour i allant de 0 à taille-1 alors
+
+        Ecrire("Renseigner la valeur n°", i+1)
+        Lire(tab[i])
+
+    FinPour
+
+    //Supprimer une case contenant une valeur
+    Ecrire("Quelle valeur souhaitez-vous supprimer ?")
+    Lire(valeur)
+
+    Pour i allant de 0 à taille-1 faire
+
+        Si (tab[i] = valeur) alors
+
+            // Valeur retrouvée dans le tableau
+            tab[i] <- tab[taille-1]
+
+            // Redimensionner(tab[compteur(tab)-1])
+            Redimensionner(tab[taille-1])
+
+        FinSi
+
+    FinPour
+
+Fin
+
+// Solution alternative
+Algo SupprimerElementV2
+Variables tab: tableau[] d'entiers
+          i, taille, valeur: entier
+          trouve: booléen
+
+Début
+
+    // Taille du tableau
+    Ecrire("Combien de valeur souhaitez vous saisir ?")
+    Lire(taille)
+
+    Redimensionner(tab[taille])
+
+    // Remplissage du tableau
+    Pour i allant de 0 à taille-1 alors
+
+        Ecrire("Renseigner la valeur n°", i+1)
+        Lire(tab[i])
+
+    FinPour
+
+    //Supprimer une case contenant une valeur
+    Ecrire("Quelle valeur souhaitez-vous supprimer ?")
+    Lire(valeur)
+
+    trouve <- false
+    i <- 0
+
+    // Les booléens
+    // Si (trouve) equivalent à Si (trouve = true)
+    // Si (NON(trouve)) equivalent à Si (trouve = false)
+
+    TantQue (NON(trouve) OU (i < taille))
+
+        Si (tab[i] = valeur) alors
+
+            // Valeur retrouvée dans le tableau
+            tab[i] <- tab[taille-1]
+
+            // Redimensionner(tab[compteur(tab)-1])
+            Redimensionner(tab[taille-1])
+
+            // Passage du booléen trouve à true
+            trouve <- true
+
+        FinSi
+
+        i <- i + 1
+
+    FinTantQue
+
+    Si (NON(trouve)) alors
+        Ecrire("Valeur introuvable !")
+    FinSi
+
+Fin
+
+-----------------------------------------------------------
+
+Algo TriTableau
+Variables tab: tableau[] d'entiers
+          taille, i, j, tmp: entier
+
+Début
+
+    // Taille du tableau
+    Ecrire("Combien de valeur souhaitez vous saisir ?")
+    Lire(taille)
+
+    Redimensionner(tab[taille])
+
+    // Remplissage du tableau
+    Pour i allant de 0 à taille-1 alors
+
+        Ecrire("Renseigner la valeur n°", i+1)
+        Lire(tab[i])
+
+    FinPour
+
+    // Tri du tableau
+    Pour i allant de 0 à compteur(tab)-2 faire
+
+        Pour j allant de i+1 à compteur(tab)-1 faire
+
+            Si (tab[i] > tab[j]) alors
+
+                tmp <- tab[i]
+                tab[i] <- tab[j]
+                tab[j] <- tmp
+
+            FinSi
+
+        FinPour
+
+    FinPour
+
+Fin
+
+// tab --> tableau de 5 cases
+// compteur(tab) --> on recupère la valeur 5 (le nombre de cases)
+
+// je veux obtenir la valeur de la dernière case du tableau
+// je sais que la première case du tableau j'y accède par sa position 0
+// donc compteur(tab)-1 me permet de récupérer la position de la dernière case
+// donc compteur(tab)-2 me permet de récupérer la position de l'avant dernière case
+

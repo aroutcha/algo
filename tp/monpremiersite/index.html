@@ -1,0 +1,266 @@
+<!-- Le doctype permet de savoir quelle version de HTML nous utilisons -->
+<!doctype html>
+
+<!-- L'attribut lang permet de spécifier la langue du document HTML -->
+<html lang="fr">
+<!-- En-tête de la page -->
+
+
+<head>
+    <title>Ma première page web</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Chargement de Fontello (police d'icones) -->
+    <link rel="stylesheet" href="css/fontello.css" />
+
+    <!-- Chargement d'une police Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <!-- Chargement de notre feuille de style -->
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<!-- Corps de la page -->
+
+<body>
+
+    <!-- La balise header ser de conteneur à l'en-tête de ma page -->
+    <header>
+        <div class="container">
+            <img src="img/logo.png" alt="Voyage dans les palmiers et le code" />
+
+            <!-- Conteneur de menu de navigation -->
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#presentation">Présentation</a>
+                    </li>
+                    <li>
+                        <a href="#services">Services</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- la balise main sert de conteneur au contenu principal de la page
+    une seule balise main par page -->
+    <main>
+        <div id="presentation">
+
+            <p class="welcome">Bienvenue dans la formation .NET</p>
+            <p class="welcome">Du HTML au C# on a peur de rien !!</p>
+            <a href="page2.html" class="btn">En savoir plus</a>
+
+        </div>
+
+        <div id="services">
+            <h2>Nos services</h2>
+
+            <div class="row">
+                <div class="col">
+                    <!-- Icone de la police d'icones Fontello -->
+                    <i class="icon-plane"></i>
+                    <h3>Réservation garantie</h3>
+                    <!-- ligne de séparation -->
+                    <hr />
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste adipisci consectetur quo neque, reprehenderit laborum molestiae voluptatibus nesciunt quam, distinctio soluta illum aspernatur dolorem sint? Aspernatur saepe quidem officia atque!</p>
+                </div>
+                <div class="col">
+                    <i class="icon-bed"></i>
+                    <h3>Assurance comprise</h3>
+                    <hr />
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus asperiores consequuntur voluptatibus alias cum odio perferendis, in sint dolore nisi! Iste facere consequatur delectus nisi autem laborum eligendi soluta aliquam!</p>
+                </div>
+                <div class="col">
+                    <i class="icon-money"></i>
+                    <h3>Prix le plus bas garantie</h3>
+                    <hr />
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae possimus maxime, ab atque nobis quasi mollitia nihil natus quos fugiat. Repellendus quibusdam veniam ipsum molestiae reiciendis, nostrum earum odit optio!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Les titres -->
+        <h1>Titre de niveau 1</h1>
+        <h2>Titre de niveau 2</h2>
+        <!-- idem pour les niveaux 3, 4 et 5 -->
+        <h6>Titre de niveau 6</h6>
+
+        <!-- Les paragraphes -->
+        <p>Mon super paragraphe de la mort qui tue !</p>
+        <!-- La div est un conteneur de type bloc pour structurer notre page
+    (balise span au contraire est un conteneur de type inline) -->
+        <div>
+            <!-- Les liens 
+        L'attribut href contient l'url vers la ressource à consulter
+        L'attribut target avec la valeur _blank permet d'ouvrir le lien dans un nouvel onglet
+        -->
+            <a href="http://google.fr" target="_blank">Lien vers Google</a>
+        </div>
+
+        <!-- Deux types d'urls :
+        - url absolue -> url complete (protocole + nom de domaine + ...) 
+        - url relative -> url relative par rapport à l'endroit où l'on se trouve 
+        -->
+        <a href="page2.html">Lien vers ma page 2</a>
+
+        <!-- Les listes
+    Liste non ordonnée (liste à puces)
+    -->
+        <ul>
+            <li>Element 1</li>
+            <li>Element 2</li>
+            <li>
+                Element 3
+                <!-- Sous liste -->
+                <ul>
+                    <li>Sous-élément 1</li>
+                    <li>Sous-élément 2</li>
+                    <li>Sous-élément 3</li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Liste ordonnée -->
+        <ol>
+            <li>Element 1</li>
+            <li>Element 2</li>
+        </ol>
+
+        <div class="items">
+            <!-- Conteneur d'un media (image, vidéo, iframe) -->
+            <figure class="item">
+                <!-- Les images 
+    La balise img est une balise auto-fermante -> elle n'a pas de contenu
+    avec une url absolue -->
+                <img
+                    src="https://images.pexels.com/photos/5103657/pexels-photo-5103657.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
+                
+                <!-- Légende à l'image -->
+                <figcaption>Balançoire au fil de l'eau</figcaption>
+            </figure>
+
+            <figure class="item">
+                <!-- avec une url relative -->
+                <img src="img/palmiers.jpg" title="Texte affiché au survol de l'image"
+                    alt="Texte alternatif important pour l'accessibilité - Le laisser vide si image de décoration - Le renseigner si l'image apporte des informations complémentaires à la compréhension de la page" />
+                
+                <figcaption>Les palmiers prennent de la hauteur</figcaption>
+            </figure>
+
+            <!-- On positionne le clearfix après le dernier élément flottant et avant la fermeture du conteneur -->
+            <div class="clearfix"></div>
+        </div>
+
+        <!-- Les contenus intégrables 
+    Vidéo YouTube
+    -->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/9ZfN87gSjvI?autoplay=1&mute=1"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+
+        <!-- Carte GMaps -->
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4654.8088387773405!2d3.134680133027027!3d50.612364479498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c2d649614cc057%3A0x4f4a8433537dac67!2sR%C3%A9sidence%20Universitaire%20Reeflex!5e1!3m2!1sfr!2sfr!4v1601477457882!5m2!1sfr!2sfr"
+            width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+            tabindex="0"></iframe>
+
+        <!-- Les vidéos -->
+        <video src="vid/city.mp4" controls autoplay muted loop></video>
+
+        <!-- Les tableaux -->
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Fruits</th>
+                    <th>Poids</th>
+                    <th>Prix</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pomme</td>
+                    <td>1kg</td>
+                    <td>1€99</td>
+                </tr>
+                <tr>
+                    <!-- fusion d'une colonne sur plusieurs lignes -->
+                    <td rowspan="2">Kiwi</td>
+                    <!-- fusion d'une colonne sur plusieurs colonnes -->
+                    <td colspan="2">0.3€ la pièce</td>
+                </tr>
+                <tr>
+                    <td>1kg</td>
+                    <td>2€</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Les formulaires -->
+        <form action="pagePourTraitementDesDonnees.php" method="post">
+            <div>
+                <!-- Pour "lier" un label à un input il faut ajouter un id sur l'input et un attribut for sur le label. les deux attributs doivent avoir la même valeur pour faire la liaison -->
+                <label for="inputFirstname">Votre prénom * :</label>
+                <!-- L'attribut required indique qu'un champ est obligatoire -->
+                <input type="text" id="inputFirstname" name="firstname" placeholder="Prénom" required />
+            </div>
+
+            <div>
+                <label for="inputPassword">Votre mot de passe :</label>
+                <input type="password" id="inputPassword" name="password" />
+            </div>
+
+            <div>
+                <!-- Zone de texte multiligne -->
+                <label for="textareaMessage">Votre message :</label>
+                <textarea id="textareaMessage" name="message" rows="4" cols="40"></textarea>
+            </div>
+
+            <div>
+                <!-- Liste déroulante -->
+                <label for="selectCountry">Votre pays :</label>
+                <select id="selectCountry" name="country">
+                    <option value="be">Belgique</option>
+                    <option value="es">Espagne</option>
+                    <!-- L'attribut selected permet de pré-selectionner une option de la liste -->
+                    <option value="fr" selected>France</option>
+                </select>
+            </div>
+
+            <div>
+                <!-- Cases à cocher -->
+                <p>Quels sont vos genres de musique préférés ?</p>
+
+                <input type="checkbox" id="checkboxPop" name="pop" />
+                <label for="checkboxPop">Pop</label>
+
+                <!-- l'attribut checked permet de cocher par défaut une case à cocher -->
+                <input type="checkbox" id="checkboxRock" name="rock" checked />
+                <label for="checkboxRock">Rock</label>
+            </div>
+
+            <div>
+                <!-- Boutons radio -->
+                <p>Votre sexe :</p>
+
+                <input type="radio" name="sexe" id="radioFemme">
+                <label for="radioFemme">Féminin</label>
+
+                <input type="radio" name="sexe" id="radioHomme">
+                <label for="radioHomme">Masculin</label>
+            </div>
+
+            <p>* Champs obligatoires</p>
+
+            <!-- Bouton de soumission du formulaire 
+        Lorsque l'on clique sur ce bouton les informations du formulaire sont envoyées à la page spécifiée dans l'attribut action de la balise form
+        -->
+            <input type="submit" value="Valider" />
+        </form>
+    </main>
+</body>
+
+</html>

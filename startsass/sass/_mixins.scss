@@ -1,0 +1,21 @@
+// Mixins
+@mixin no-margin {
+    margin: 0;
+    padding: 0;
+}
+
+@mixin button($color, $background, $radius: false) {
+    color: $color;
+    background-color: $background;
+
+    padding: 1rem;
+    text-decoration: none;
+
+    // sans le display inline-block le padding n'est pas pris en compte
+    display: inline-block;
+
+    // Condition
+    @if $radius {
+        border-radius: $radius;
+    }
+}
